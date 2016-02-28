@@ -25,28 +25,35 @@ var niceComments = ["Are y'all talking about Ellen? She is the nicest girl I hav
                     "I want to marry a cat lady",
                     "Ellen's beauty is illegal to have",
                     "Ellen Ella ella eh eh eh"
-                    ]
+                    ];
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/Ellen$/;
     var validText = request.text.indexOf("Ellen") > -1 || request.text.indexOf("ellen") > -1;
-  console.log(request)
+  console.log(request);
   if(request.text && validText && request.name != "Ellen\'s Secret Admirer" ) {
     this.res.writeHead(200);
-    postMessage();
+    postMessage(false);
     this.res.end();
-  } else {
+  }else if(request.text && request.name == "Clayton") {
+      this.res.writeHead(200);
+      postMessage(true);
+      this.res.end();
+  }
+  else {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
   }
 }
 
-function postMessage() {
+function postMessage(claytonPost) {
   var botResponse, options, body, botReq;
-
-  botResponse = niceComments[Math.floor(Math.random() * (niceComments.length))]
-
+   if (claytonPost){
+       botResponse = "@Allen";
+   } else {
+       botResponse = niceComments[Math.floor(Math.random() * (niceComments.length))];
+   }
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
