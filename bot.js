@@ -77,19 +77,19 @@ function postMessage(claytonPost) {
   };
     if (botResponse.indexOf("@Ellen") != -1 && botResponse.indexOf("@Clayton") != -1){
         body = {
-            attachments: [ { loci: [[botResponse.indexOf("@Ellen"),6],[botResponse.indexOf("@Clayton"),8]], type: 'mentions', user_ids: ["20497030","15802842"] } ],
+            "attachments": [ { loci: [[botResponse.indexOf("@Ellen"),6],[botResponse.indexOf("@Clayton"),8]], type: 'mentions', user_ids: ["20497030","15802842"] } ],
             "bot_id": botID,
             "text": botResponse
         };
     }else if (botResponse.indexOf("@Ellen") != -1){
       body = {
-          attachments: [ { loci: [[botResponse.indexOf("@Ellen"),6]], type: 'mentions', user_ids: ["20497030"] } ],
+          "attachments": [ { loci: [[botResponse.indexOf("@Ellen"),6]], type: 'mentions', user_ids: ["20497030"] } ],
           "bot_id": botID,
           "text": botResponse
       };
   }else if (botResponse.indexOf("@Clayton") != -1){
       body = {
-          attachments: [ { loci: [[botResponse.indexOf("@Clayton"),8]], type: 'mentions', user_ids: ["15802842"] } ],
+          "attachments": [ { loci: [[botResponse.indexOf("@Clayton"),8]], type: 'mentions', user_ids: ["15802842"] } ],
           "bot_id": botID,
           "text": botResponse
       };
