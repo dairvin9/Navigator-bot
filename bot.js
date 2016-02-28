@@ -29,8 +29,9 @@ var niceComments = ["Are y'all talking about Ellen? She is the nicest girl I hav
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/Ellen$/;
+    var validText = request.text.indexOf("Ellen") > -1 || request.text.indexOf("ellen") > -1;
   console.log(request)
-  if(request.text && botRegex.test(request.text) && request.name != "Ellen\'s Secret Admirer" ) {
+  if(request.text && validText && request.name != "Ellen\'s Secret Admirer" ) {
     this.res.writeHead(200);
     postMessage();
     this.res.end();
