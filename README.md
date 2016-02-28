@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sample GroupMe NodeJS Callback Bot
 
 ## Introduction
@@ -147,3 +148,7 @@ Then navigate to `http://127.0.0.1:5000/` in a browser.
 
 ## All done! Go play around and make the bot your own.
 
+=======
+# EllenAdmirer
+Give Ellen pep talk on Groupme to boost her self-esteem
+>>>>>>> 7549cc5ec230fdce22c090bd078afe4639b6244d
