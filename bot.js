@@ -12,19 +12,35 @@ var niceComments = ["Are y'all talking about Ellen? She is the nicest girl I hav
                     "I have enough Ellen for today",
                     "@Clayton",
                     "I like country dance too",
-                    "Ellen's bf application is still open. Apply here http://ellenstanfill.com/",
+                    "@Ellen's bf application is still open. Apply here http://ellenstanfill.com/",
                     "You can never be as good as Ellen",
                     "@Ellen",
                     "@Ellen @Clayton",
-                    "Happy Ellen day",
+                    "Happy @Ellen day",
                     "Knock, Knock\n Who's there?\n very long pause... \"Java\"",
                     cool(),
                     "Ellen is so awesome; everyone wants to be her friend.",
-                    "Don't talk to Ellen like that",
+                    "Don't talk to @Ellen like that",
                     "Ellen's beauty makes me stack overflow",
                     "I want to marry a cat lady",
                     "Ellen's beauty is illegal to have",
-                    "Ellen Ella ella eh eh eh"
+                    "Ellen Ella ella eh eh eh",
+                    "No you can't be as good as Ellen",
+                    "You will never be as good as Ellen. Not even close",
+                    "@Clayton",
+                    "You better be talkin' nice about Ellen",
+                    "Ellen, teach me how to life.",
+                    "I haven't seen a girl as smart as Ellen",
+                    "Cat > Dog",
+                    "Is it just me or 313 sucks",
+                    "@Clayton",
+                    "You just mentioned Ellen. What do you want?",
+                    "Sorry she has a boyfriend.",
+                    "Imaginary",
+                    "Error 69: Ellen is not defined in the scope.",
+                    "@Clayton's steel finger is always ready for @Ellen.",
+                    "Cool story",
+                    "Every day is great day because of @Ellen."
                     ];
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
@@ -35,7 +51,7 @@ function respond() {
     this.res.writeHead(200);
     postMessage(false);
     this.res.end();
-  }else if(request.text && request.name == "Clayton") {
+  }else if(request.text && request.user_id == "15802842") {
       this.res.writeHead(200);
       postMessage(true);
       this.res.end();
@@ -50,7 +66,7 @@ function respond() {
 function postMessage(claytonPost) {
   var botResponse, options, body, botReq;
    if (claytonPost){
-       botResponse = "@Allen";
+       botResponse = "@Ellen";
    } else {
        botResponse = niceComments[Math.floor(Math.random() * (niceComments.length))];
    }
@@ -59,11 +75,31 @@ function postMessage(claytonPost) {
     path: '/v3/bots/post',
     method: 'POST'
   };
-
-  body = {
-    "bot_id" : botID,
-    "text" : botResponse
-  };
+    if (botResponse.indexOf("@Ellen") != -1 && botResponse.indexOf("@Clayton") != -1){
+        body = {
+            attachments: [ { loci: [[botResponse.indexOf("@Ellen"),6],[botResponse.indexOf("@Clayton"),8]], type: 'mentions', user_ids: ["20497030","15802842"] } ],
+            "bot_id": botID,
+            "text": botResponse
+        };
+    }else if (botResponse.indexOf("@Ellen") != -1){
+      body = {
+          attachments: [ { loci: [[botResponse.indexOf("@Ellen"),6]], type: 'mentions', user_ids: ["20497030"] } ],
+          "bot_id": botID,
+          "text": botResponse
+      };
+  }else if (botResponse.indexOf("@Clayton") != -1){
+      body = {
+          attachments: [ { loci: [[botResponse.indexOf("@Clayton"),8]], type: 'mentions', user_ids: ["15802842"] } ],
+          "bot_id": botID,
+          "text": botResponse
+      };
+  }
+  else {
+      body = {
+          "bot_id": botID,
+          "text": botResponse
+      };
+  }
 
   console.log('sending ' + botResponse + ' to ' + botID);
 
