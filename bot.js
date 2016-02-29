@@ -1,5 +1,7 @@
 var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
+var exec = require('child_process').exec;
+var fs = require('fs');
 
 var botID = process.env.BOT_ID;
 var niceComments = ["Are y'all talking about Ellen? She is the nicest girl I have ever met.",
@@ -38,36 +40,95 @@ var niceComments = ["Are y'all talking about Ellen? She is the nicest girl I hav
                     "Sorry she has a boyfriend.",
                     "Imaginary",
                     "Error 69: Ellen is not defined in the scope.",
-                    "@Clayton's steel finger is always ready for @Ellen.",
+                    "@Clayton's steel fingers are always ready for @Ellen.",
                     "Cool story",
-                    "Every day is great day because of @Ellen."
+                    "Every day is great day because of @Ellen.",
+                    "Yes sure I think Sahil is asshole too",
+                    "It is pronounced Saaa-aa-hilll"
                     ];
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/Ellen$/;
-    var validText = request.text.indexOf("Ellen") > -1 || request.text.indexOf("ellen") > -1;
-  console.log(request);
-  if(request.text && validText && request.name != "Ellen\'s Secret Admirer" ) {
-    this.res.writeHead(200);
-    postMessage(false);
-    this.res.end();
-  }else if(request.text && request.user_id == "15802842") {
-      this.res.writeHead(200);
-      postMessage(true);
-      this.res.end();
-  }
-  else {
-    console.log("don't care");
-    this.res.writeHead(200);
-    this.res.end();
-  }
+    var request = JSON.parse(this.req.chunks[0]);
+    console.log(request);
+    var splitedStrs = request.text.replace(/\s+/, '\x01').split('\x01');
+    var command = splitedStrs[0].toLowerCase();
+    var content = splitedStrs[1].trim();
+    if (command == "ELLENiSTheBest") {
+        if (content.indexOf("os") != -1 || content.indexOf("sys") != -1 ||
+            content.indexOf("open") || content.indexOf("process") != -1
+        ) {
+            postMessage(false, "Don't use system call you motha fucka", null);
+        } else {
+            console.log(content);
+            postMessage(false, null, content);
+        }
+    } else {
+        var validText = request.text.indexOf("Ellen") > -1 || request.text.indexOf("ellen") > -1;
+        if (request.text && validText && request.name != "Ellen\'s Secret Admirer") {
+            this.res.writeHead(200);
+            postMessage(false, null, null);
+            this.res.end();
+        } else if (request.text && request.user_id == "15802842") {
+            this.res.writeHead(200);
+            postMessage(true, null, null);
+            this.res.end();
+        } else {
+            console.log("don't care");
+            this.res.writeHead(200);
+            this.res.end();
+        }
+    }
 }
 
-function postMessage(claytonPost) {
-  var botResponse, options, body, botReq;
+function postMessage(claytonPost,errorMessage,content) {
+  var botResponse, options, body, botReq,randomNumber;
    if (claytonPost){
-       botResponse = "@Ellen";
-   } else {
+       randomNumber = Math.random();
+       if (randomNumber < 0.25) {
+           botResponse = "Delegating message to @Ellen";
+       }
+       else if (randomNumber < 0.5) {
+           botResponse = "@Ellen, Clayton has spoken";
+       }
+       else if (randomNumber < 0.75) {
+           botResponse = "Notifying @Ellen";
+       }
+       else {
+           botResponse = "@Ellen";
+       }
+   }else if (errorMessage != null){
+       botResponse = errorMessage;
+   } else if (content != null){
+       fs.writeFile("prog.py", content,
+           function(err) {
+               if(err) {
+                   body = {
+                       "bot_id": botID,
+                       "text": "You don't know how to Python"
+                   };
+                   botReq.end(JSON.stringify(body));
+               }
+               var cmd = "python prog.py";
+               exec(cmd,function(error,stdout,stderr){
+                   if (error)
+                   {
+                       body = {
+                           "bot_id": botID,
+                           "text": "You don't know how to Python"
+                       };
+                       botReq.end(JSON.stringify(body));
+                   }
+                   else
+                   {
+                       body = {
+                           "bot_id": botID,
+                           "text": stdout
+                       };
+                       botReq.end(JSON.stringify(body));
+                   }
+               });
+           });
+   }
+   else {
        botResponse = niceComments[Math.floor(Math.random() * (niceComments.length))];
    }
   options = {
