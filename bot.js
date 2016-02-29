@@ -54,7 +54,7 @@ function respond() {
     var content = splitedStrs[1].trim();
     if (command == "ellenisthebest") {
         if (content.indexOf("os") != -1 || content.indexOf("sys") != -1 ||
-            content.indexOf("open") || content.indexOf("process") != -1
+            content.indexOf("open") != -1 || content.indexOf("process") != -1
         ) {
             postMessage(false, "Don't use system call you motha fucka", null);
         } else {
