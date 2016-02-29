@@ -130,6 +130,7 @@ function postMessage(claytonPost,errorMessage,content) {
                    }
                });
                if(err) {
+                   console.log("Error code: " + err);
                    body = {
                        "bot_id": botID,
                        "text": "You don't know how to Python"
@@ -140,6 +141,7 @@ function postMessage(claytonPost,errorMessage,content) {
                exec(cmd,function(error,stdout,stderr){
                    if (error)
                    {
+                       console.log("Error code: " + error);
                        body = {
                            "bot_id": botID,
                            "text": "You don't know how to Python"
