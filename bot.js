@@ -47,6 +47,7 @@ var niceComments = ["Are y'all talking about Ellen? She is the nicest girl I hav
                     "It is pronounced Saaa-aa-hilll"
                     ];
 function respond() {
+    var compileFlag = false;
     var splitedStrs;
     var request = JSON.parse(this.req.chunks[0]);
     console.log(request);
@@ -64,13 +65,16 @@ function respond() {
             if (content.indexOf("os") != -1 || content.indexOf("sys") != -1 ||
                 content.indexOf("open") != -1 || content.indexOf("process") != -1
             ) {
+                compileFlag = true;
                 postMessage(false, "Don't use system call you motha fucka", null);
             } else {
                 console.log(content);
+                compileFlag = true;
                 postMessage(false, null, content);
             }
         }
-    }else {
+    }
+    if (compileFlag == false) {
         console.log("It is here now.. Regular cases");
         var validText = request.text.indexOf("Ellen") > -1 || request.text.indexOf("ellen") > -1;
         if (request.text && validText && request.name != "Ellen\'s Secret Admirer") {
@@ -87,6 +91,7 @@ function respond() {
             this.res.end();
         }
     }
+
 }
 
 function postMessage(claytonPost,errorMessage,content) {
