@@ -51,10 +51,12 @@ function respond() {
     var request = JSON.parse(this.req.chunks[0]);
     console.log(request);
     if (request.text) {
+        console.log("spliting string here");
         splitedStrs = request.text.replace(/\s+/, '\x01').split('\x01');
     }else{
         splitedStrs = null;
     }
+    console.log("Ending");
     if (splitedStrs != null && splitedStrs.length > 1) {
         var command = splitedStrs[0].toLowerCase();
         var content = splitedStrs[1].trim();
@@ -94,7 +96,7 @@ function postMessage(claytonPost,errorMessage,content) {
         path: '/v3/bots/post',
         method: 'POST'
     };
-
+    console.log("in post message");
     if (claytonPost){
        randomNumber = Math.random();
        if (randomNumber < 0.25) {
