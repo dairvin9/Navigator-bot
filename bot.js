@@ -52,7 +52,7 @@ function respond() {
     var splitedStrs = request.text.replace(/\s+/, '\x01').split('\x01');
     var command = splitedStrs[0].toLowerCase();
     var content = splitedStrs[1].trim();
-    if (command == "ELLENiSTheBest") {
+    if (command == "ellenisthebest") {
         if (content.indexOf("os") != -1 || content.indexOf("sys") != -1 ||
             content.indexOf("open") || content.indexOf("process") != -1
         ) {
