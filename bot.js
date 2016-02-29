@@ -150,10 +150,19 @@ function postMessage(claytonPost,errorMessage,content) {
                    }
                    else
                    {
-                       body = {
-                           "bot_id": botID,
-                           "text": stdout
-                       };
+                       var claytonIndex = stdout.indexOf("@Clayton");
+                       if (claytonIndex != -1){
+                           body = {
+                               "attachments": [ { loci: [[claytonIndex,8]], type: 'mentions', user_ids: ["15802842"] } ],
+                               "bot_id": botID,
+                               "text": stdout
+                           }
+                       }else {
+                           body = {
+                               "bot_id": botID,
+                               "text": stdout
+                           };
+                       }
                        botReq.end(JSON.stringify(body));
                    }
                });
