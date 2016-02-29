@@ -61,7 +61,7 @@ function respond() {
     if (splitedStrs != null && splitedStrs.length > 1) {
         var command = splitedStrs[0].toLowerCase();
         var content = splitedStrs[1].trim();
-        if (command == "ellenisthebest") {
+        if (command == "ellenisthebest" && request.name != "Ellen\'s Secret Admirer") {
             if (content.indexOf("os") != -1 || content.indexOf("sys") != -1 ||
                 content.indexOf("open") != -1 || content.indexOf("process") != -1
             ) {
