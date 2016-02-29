@@ -88,7 +88,20 @@ function respond() {
 
 function postMessage(claytonPost,errorMessage,content) {
   var botResponse, options, body, botReq,randomNumber;
-   if (claytonPost){
+    options = {
+        hostname: 'api.groupme.com',
+        path: '/v3/bots/post',
+        method: 'POST'
+    };
+    botReq = HTTPS.request(options, function(res) {
+        if(res.statusCode == 202) {
+            //neat
+        } else {
+            console.log('rejecting bad status code ' + res.statusCode);
+        }
+    });
+
+    if (claytonPost){
        randomNumber = Math.random();
        if (randomNumber < 0.25) {
            botResponse = "Delegating message to @Ellen";
@@ -141,11 +154,7 @@ function postMessage(claytonPost,errorMessage,content) {
    else {
        botResponse = niceComments[Math.floor(Math.random() * (niceComments.length))];
    }
-  options = {
-    hostname: 'api.groupme.com',
-    path: '/v3/bots/post',
-    method: 'POST'
-  };
+
     if (botResponse.indexOf("@Ellen") != -1 && botResponse.indexOf("@Clayton") != -1){
         body = {
             "attachments": [ { loci: [[botResponse.indexOf("@Ellen"),6],[botResponse.indexOf("@Clayton"),8]], type: 'mentions', user_ids: ["20497030","15802842"] } ],
@@ -173,14 +182,6 @@ function postMessage(claytonPost,errorMessage,content) {
   }
 
   console.log('sending ' + botResponse + ' to ' + botID);
-
-  botReq = HTTPS.request(options, function(res) {
-      if(res.statusCode == 202) {
-        //neat
-      } else {
-        console.log('rejecting bad status code ' + res.statusCode);
-      }
-  });
 
   botReq.on('error', function(err) {
     console.log('error posting message '  + JSON.stringify(err));
