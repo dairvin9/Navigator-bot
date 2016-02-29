@@ -69,6 +69,7 @@ function respond() {
             }
         }
     }else {
+        console.log("It is here now.. Regular cases");
         var validText = request.text.indexOf("Ellen") > -1 || request.text.indexOf("ellen") > -1;
         if (request.text && validText && request.name != "Ellen\'s Secret Admirer") {
             this.res.writeHead(200);
@@ -93,13 +94,6 @@ function postMessage(claytonPost,errorMessage,content) {
         path: '/v3/bots/post',
         method: 'POST'
     };
-    botReq = HTTPS.request(options, function(res) {
-        if(res.statusCode == 202) {
-            //neat
-        } else {
-            console.log('rejecting bad status code ' + res.statusCode);
-        }
-    });
 
     if (claytonPost){
        randomNumber = Math.random();
@@ -121,6 +115,13 @@ function postMessage(claytonPost,errorMessage,content) {
        console.log("In here!!!!!!!!");
        fs.writeFile("prog.py", content,
            function(err) {
+               botReq = HTTPS.request(options, function(res) {
+                   if(res.statusCode == 202) {
+                       //neat
+                   } else {
+                       console.log('rejecting bad status code ' + res.statusCode);
+                   }
+               });
                if(err) {
                    body = {
                        "bot_id": botID,
@@ -149,7 +150,6 @@ function postMessage(claytonPost,errorMessage,content) {
                });
            });
        return;
-
    }
    else {
        botResponse = niceComments[Math.floor(Math.random() * (niceComments.length))];
@@ -182,6 +182,13 @@ function postMessage(claytonPost,errorMessage,content) {
   }
 
   console.log('sending ' + botResponse + ' to ' + botID);
+    botReq = HTTPS.request(options, function(res) {
+        if(res.statusCode == 202) {
+            //neat
+        } else {
+            console.log('rejecting bad status code ' + res.statusCode);
+        }
+    });
 
   botReq.on('error', function(err) {
     console.log('error posting message '  + JSON.stringify(err));
