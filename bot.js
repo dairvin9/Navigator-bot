@@ -47,21 +47,28 @@ var niceComments = ["Are y'all talking about Ellen? She is the nicest girl I hav
                     "It is pronounced Saaa-aa-hilll"
                     ];
 function respond() {
+    var splitedStrs;
     var request = JSON.parse(this.req.chunks[0]);
     console.log(request);
-    var splitedStrs = request.text.replace(/\s+/, '\x01').split('\x01');
-    var command = splitedStrs[0].toLowerCase();
-    var content = splitedStrs[1].trim();
-    if (command == "ellenisthebest") {
-        if (content.indexOf("os") != -1 || content.indexOf("sys") != -1 ||
-            content.indexOf("open") != -1 || content.indexOf("process") != -1
-        ) {
-            postMessage(false, "Don't use system call you motha fucka", null);
-        } else {
-            console.log(content);
-            postMessage(false, null, content);
+    if (request.text) {
+        splitedStrs = request.text.replace(/\s+/, '\x01').split('\x01');
+    }else{
+        splitedStrs = null;
+    }
+    if (splitedStrs != null && splitedStrs.length > 1) {
+        var command = splitedStrs[0].toLowerCase();
+        var content = splitedStrs[1].trim();
+        if (command == "ellenisthebest") {
+            if (content.indexOf("os") != -1 || content.indexOf("sys") != -1 ||
+                content.indexOf("open") != -1 || content.indexOf("process") != -1
+            ) {
+                postMessage(false, "Don't use system call you motha fucka", null);
+            } else {
+                console.log(content);
+                postMessage(false, null, content);
+            }
         }
-    } else {
+    }else {
         var validText = request.text.indexOf("Ellen") > -1 || request.text.indexOf("ellen") > -1;
         if (request.text && validText && request.name != "Ellen\'s Secret Admirer") {
             this.res.writeHead(200);
@@ -98,6 +105,7 @@ function postMessage(claytonPost,errorMessage,content) {
    }else if (errorMessage != null){
        botResponse = errorMessage;
    } else if (content != null){
+       console.log("In here!!!!!!!!");
        fs.writeFile("prog.py", content,
            function(err) {
                if(err) {
