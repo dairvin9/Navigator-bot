@@ -135,6 +135,8 @@ function postMessage(claytonPost,errorMessage,content) {
                    }
                });
            });
+       return;
+
    }
    else {
        botResponse = niceComments[Math.floor(Math.random() * (niceComments.length))];
