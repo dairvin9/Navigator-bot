@@ -83,7 +83,12 @@ function respond() {
             this.res.end();
         } else if (request.text && request.user_id == "15802842") {
             this.res.writeHead(200);
-            postMessage(true, null, null);
+            var shouldPost = Math.random();
+            if (shouldPost < 0.10) {
+                postMessage(true, null, null);
+            }else{
+                console.log("don't care");
+            }
             this.res.end();
         } else {
             console.log("don't care");
@@ -103,6 +108,7 @@ function postMessage(claytonPost,errorMessage,content) {
     };
     console.log("in post message");
     if (claytonPost){
+
        randomNumber = Math.random();
        if (randomNumber < 0.25) {
            botResponse = "Delegating message to @Ellen";
