@@ -84,7 +84,7 @@ function respond() {
         } else if (request.text && request.user_id == "15802842") {
             this.res.writeHead(200);
             var shouldPost = Math.random();
-            if (shouldPost < 0.10) {
+            if (shouldPost < 0.30) {
                 postMessage(true, null, null);
             }else{
                 console.log("don't care");
@@ -111,7 +111,7 @@ function postMessage(claytonPost,errorMessage,content) {
 
        randomNumber = Math.random();
        if (randomNumber < 0.25) {
-           botResponse = "Delegating message to @Ellen";
+           botResponse = "The Hulk > Antman > literally anything > Captain America";
        }
        else if (randomNumber < 0.5) {
            botResponse = "@Ellen, Clayton has spoken";
@@ -120,7 +120,7 @@ function postMessage(claytonPost,errorMessage,content) {
            botResponse = "Notifying @Ellen";
        }
        else {
-           botResponse = "@Ellen";
+           botResponse = "@Clayton Iron Man sucks";
        }
    }else if (errorMessage != null){
        botResponse = errorMessage;
