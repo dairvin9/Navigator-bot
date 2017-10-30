@@ -10,7 +10,7 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "Can you be my lunch date? Alan",
                     "I just wanna be like Alan",
                     "Did you just mention Alan? Are you secretly in love with him?",
-                    "@Ellen's gf application is still open. Send the application to nathan.sanders@tamu.edu",
+                    "Alan's gf application is still open. Send the application to nathan.sanders@tamu.edu",
                     "Alan is so awesome; everyone wants to be his friend.",
                     "Alan's beauty makes me stack overflow",
                     "Alan's beauty is illegal to have",
@@ -45,23 +45,11 @@ function respond() {
     if (splitedStrs != null && splitedStrs.length > 1) {
         var command = splitedStrs[0].toLowerCase();
         var content = splitedStrs[1].trim();
-        if (command == "ellenisthebest" && request.name != "Ellen\'s Secret Admirer") {
-            if (content.indexOf("os") != -1 || content.indexOf("sys") != -1 ||
-                content.indexOf("open") != -1 || content.indexOf("process") != -1
-            ) {
-                compileFlag = true;
-                postMessage(false, "Don't use system call you motha fucka", null);
-            } else {
-                console.log(content);
-                compileFlag = true;
-                postMessage(false, null, content);
-            }
-        }
     }
     if (compileFlag == false) {
         console.log("It is here now.. Regular cases");
-        var validText = request.text.indexOf("Ellen") > -1 || request.text.indexOf("ellen") > -1;
-        if (request.text && validText && request.name != "Ellen\'s Secret Admirer") {
+        var validText = request.text.indexOf("Alan") > -1 || request.text.indexOf("alan") > -1;
+        if (request.text && validText && request.name != "Alan\'s Secret Admirer") {
             this.res.writeHead(200);
             postMessage(false, null, null);
             this.res.end();
