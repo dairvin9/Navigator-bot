@@ -34,7 +34,10 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "Alan has such a big heart <3",
                     "Alan has nice ankles",
                     "I have never met someone like Alan before",
-                    "Alan Shepstone inspires me"
+                    "Alan Shepstone inspires me",
+                    "Alan is nothing less than special",
+                    "Alan never ceases to amaze me (in a positive way).",
+                    "Alan raises the bar"
                     ];
 function respond() {
     var compileFlag = false;
