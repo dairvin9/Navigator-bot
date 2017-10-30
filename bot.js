@@ -30,7 +30,7 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "Alan has such a great smile",
                     "Alan is a risk worth taking.",
                     "The tone of Alan's voice is really resonating with my chakras. He could save the entire world with that voice.",
-                    "If Alan wasn't such a conservative, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
                     "Alan has such a big heart <3",
                     "Alan has nice ankles",
                     "I have never met someone like Alan before",
