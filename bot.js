@@ -7,7 +7,7 @@ var botID = process.env.BOT_ID;
 var niceComments = ["Are y'all talking about Alan? He is the nicest man I have ever met.",
                     "Can you teach me how to have game like Alan?",
                     "Alan is soooo cool",
-                    "Can you be my lunch date? Alan",
+                    "Can you be my lunch date? @Alan",
                     "I just wanna be like Alan",
                     "Did you just mention Alan? Are you secretly in love with him?",
                     "Alan's gf application is still open. Send the application to nathan.sanders@tamu.edu",
@@ -16,7 +16,6 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "Alan's beauty is illegal to have",
                     "Alansanity",
                     "No you can't be as good as Alan",
-                    "You will never be as good as Alan. Not even close",
                     "You better be talkin' nice about Alan",
                     "Alan, teach me how to life.",
                     "I haven't seen a BOY as smart as Alan",
@@ -29,6 +28,13 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "Alan is the funniest dude I have ever met!",
                     "Women cannot keep their eyes off Alan",
                     "Alan has such a great smile",
+                    "Alan is a risk worth taking.",
+                    "The tone of Alan's voice is really resonating with my chakras. He could save the entire world with that voice.",
+                    "If Alan wasn't such a conservative, I would marry him yesterday!",
+                    "Alan has such a big heart <3",
+                    "Alan has nice ankles",
+                    "I have never met someone like Alan before",
+                    "Alan Shepstone inspires me"
                     ];
 function respond() {
     var compileFlag = false;
