@@ -55,7 +55,11 @@ function respond() {
     if (compileFlag == false) {
         console.log("It is here now.. Regular cases");
         var validText = request.text.indexOf("Alan") > -1 || request.text.indexOf("alan") > -1;
-        if (request.text && validText && request.name != "Alan\'s Secret Admirer") {
+        
+
+        var randPost = Math.random();
+       
+        if (request.text && validText && request.name != "Alan\'s Secret Admirer" && randPost < 0.30) {
             this.res.writeHead(200);
             postMessage(false, null, null);
             this.res.end();
