@@ -37,7 +37,9 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "Alan Shepstone inspires me",
                     "Alan is nothing less than special",
                     "Alan never ceases to amaze me (in a positive way).",
-                    "Alan raises the bar"
+                    "Alan raises the bar",
+                    "Alan's smile is proof that the best things in life are free.",
+                    "If for some reason, our airplane was having trouble, I would help Alan with his oxygen mask before adjusting mine."
                     ];
 function respond() {
     var compileFlag = false;
