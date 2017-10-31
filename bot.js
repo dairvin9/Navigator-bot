@@ -31,13 +31,34 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "Alan is a risk worth taking.",
                     "The tone of Alan's voice is really resonating with my chakras. He could save the entire world with that voice.",
                     "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
                     "Alan has such a big heart <3",
+                    "Alan has nice ankles",
+                    "I have never met someone like Alan before",
+                    "Alan is a risk worth taking.",
+                    "The tone of Alan's voice is really resonating with my chakras. He could save the entire world with that voice.",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "Alan has such a big heart <3",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
+                    "If Alan wasn't such a liberal, I would marry him yesterday!",
                     "Alan has nice ankles",
                     "I have never met someone like Alan before",
                     "Alan Shepstone inspires me",
                     "Alan is nothing less than special",
                     "Alan never ceases to amaze me (in a positive way).",
                     "Alan raises the bar",
+                    "Alan's smile is proof that the best things in life are free.",
+                    "Alan's smile is proof that the best things in life are free.",
+                    "Alan's smile is proof that the best things in life are free.",
+                    "Alan's smile is proof that the best things in life are free.",
                     "Alan's smile is proof that the best things in life are free.",
                     "If for some reason, our airplane was having trouble, I would help Alan with his oxygen mask before adjusting mine.",
                     "I am too old to waste my time without Alan."
@@ -72,7 +93,7 @@ function respond() {
         } else if (request.text && request.user_id == "15802842") {
             this.res.writeHead(200);
             var shouldPost = Math.random();
-            if (shouldPost < 0.30) {
+            if (shouldPost < 0.59) {
                 postMessage(true, null, null);
             }else{
                 console.log("don't care");
