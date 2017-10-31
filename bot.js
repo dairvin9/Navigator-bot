@@ -77,7 +77,7 @@ function respond() {
 
         var randPost = Math.random();
        
-        if (request.text && validText && request.name != "Alan\'s Secret Admirer" && randPost < 0.30) {
+        if (request.text && validText && request.name != "Alan\'s Secret Admirer" && randPost < 0.50) {
             this.res.writeHead(200);
             postMessage(false, null, null);
             this.res.end();
