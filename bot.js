@@ -47,12 +47,16 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "Alan never ceases to amaze me (in a positive way).",
                     "Alan raises the bar",
                     "Alan's smile is proof that the best things in life are free.",
-                    "Alan's smile is proof that the best things in life are free.",
-                    "Alan's smile is proof that the best things in life are free.",
-                    "Alan's smile is proof that the best things in life are free.",
-                    "Alan's smile is proof that the best things in life are free.",
                     "If for some reason, our airplane was having trouble, I would help Alan with his oxygen mask before adjusting mine.",
-                    "I am too old to waste my time without Alan."
+                    "I am too old to waste my time without Alan.",
+                    "Alan is HOT RICE",
+                    "Alan is looking extra manly today",
+                    "Alan keeps it so classy and clean shaven",
+                    "I cannot help but blush around Alan",
+                    "Alan is HOT RICE",
+                    "Alan is looking extra manly today",
+                    "Alan keeps it so classy and clean shaven",
+                    "I cannot help but blush around Alan"
                     ];
 function respond() {
     var compileFlag = false;
