@@ -4,6 +4,7 @@ var exec = require('child_process').exec;
 var fs = require('fs');
 
 var botID = process.env.BOT_ID;
+
 var niceComments = ["Are y'all talking about Alan? He is the nicest man I have ever met.",
                     "Can you teach me how to have game like Alan?",
                     "Alan is soooo cool",
