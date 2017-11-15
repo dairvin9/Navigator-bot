@@ -1,5 +1,4 @@
 var HTTPS = require('https');
-var cool = require('cool-ascii-faces');
 var exec = require('child_process').exec;
 var fs = require('fs');
 
@@ -11,7 +10,7 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "Can you be my lunch date? @Alan",
                     "I just wanna be like Alan",
                     "Did you just mention Alan? Are you secretly in love with him?",
-                    "Alan's gf application is still open. Send the application to nathan.sanders@tamu.edu",
+                    "Alan's gf application is still open. Apply today!",
                     "Alan is so awesome; everyone wants to be his friend.",
                     "Alan's beauty makes me stack overflow",
                     "Alan's beauty is illegal to have",
@@ -47,7 +46,7 @@ var niceComments = ["Are y'all talking about Alan? He is the nicest man I have e
                     "If Alan wasn't such a liberal, I would marry him yesterday!",
                     "Alan has nice ankles",
                     "I have never met someone like Alan before",
-                    "Alan Shepstone inspires me",
+                    "Alan inspires me",
                     "Alan is nothing less than special",
                     "Alan never ceases to amaze me (in a positive way).",
                     "Alan raises the bar",
