@@ -7,6 +7,7 @@ var botID = process.env.BOT_ID;
 var niceComments = ["Are y'all talking about Alan? He is the nicest man I have ever met.",
                     "Can you teach me how to have game like Alan?",
                     "Alan is soooo cool",
+                    "I only hope that my children become even half the man Alan Shepstone is.",
                     "Can you be my lunch date? @Alan",
                     "I just wanna be like Alan",
                     "Did you just mention Alan? Are you secretly in love with him?",
